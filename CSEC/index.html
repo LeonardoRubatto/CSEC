@@ -499,7 +499,7 @@ body{font-family:var(--font-main);background:var(--body-bg);color:var(--gray-900
     <!-- CARD OPTIONS PÉDAGOGIQUES -->
     <div class="card">
       <div class="card-head">
-        <div class="card-head-icon"><span class="ui-icon" data-icon="info.svg" aria-hidden="true"></span></div>
+        <div class="card-head-icon"><span class="ui-icon" data-icon="student.svg" aria-hidden="true"></span></div>
         <h2>Options d'affichage</h2>
       </div>
       <div class="card-body">
@@ -524,7 +524,7 @@ body{font-family:var(--font-main);background:var(--body-bg);color:var(--gray-900
           <div class="opt-toggle" role="button" tabindex="0" aria-expanded="false"
             onclick="toggleOpt('steps')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleOpt('steps')}">
             <div class="opt-toggle-left">
-              <span class="opt-toggle-icon"><span class="ui-icon" data-icon="info.svg" aria-hidden="true"></span></span>
+              <span class="opt-toggle-icon"><span class="ui-icon" data-icon="op.svg" aria-hidden="true"></span></span>
               <span>Afficher les étapes de calcul</span>
             </div>
             <div class="switch" aria-hidden="true"></div>
@@ -1291,10 +1291,10 @@ function buildAlerts(r) {
     h += alert_('warn', 'warning.svg', 'Le coefficient a est nul : ce n\'est plus une équation du second degré. Le calculateur bascule vers une résolution linéaire.');
   }
   if (r.delta !== undefined && r.delta < -CFG.EPSILON_ZERO && !showComplex()) {
-    h += alert_('info', 'info.svg', 'Le discriminant est négatif : il n\'existe pas de solution réelle. Activez le mode complexe pour afficher les racines complexes conjuguées.');
+    h += alert_('info', 'egal.svg', 'Le discriminant est négatif : il n\'existe pas de solution réelle. Activez le mode complexe pour afficher les racines complexes conjuguées.');
   }
   if (r.delta !== undefined && Math.abs(r.delta) < CFG.EPSILON_ZERO && r.caseType !== 'two_real') {
-    h += alert_('info', 'info.svg', 'Le discriminant est nul : l\'équation admet une racine réelle double.');
+    h += alert_('info', 'egal.svg', 'Le discriminant est nul : l\'équation admet une racine réelle double.');
   }
   if (r.largeCoeffs) {
     h += alert_('warn', 'warning.svg', 'Les coefficients sont très grands : l\'affichage décimal peut perdre en précision.');

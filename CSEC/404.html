@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="">
+<head>
+<meta charset="UTF-8">
+<script>(function(){var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page introuvable — CalcEquation</title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--blue:#0F766E;--blue-l:#F0FDFA;--gray-100:#F3F4F6;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-900:#111827;--white:#FFFFFF;--body-bg:#dde6ef;--font-main:'Plus Jakarta Sans',system-ui,sans-serif;}
+[data-theme="dark"]{--body-bg:#080e18;--white:#0f172a;--gray-100:#313c4a;--gray-400:#7a8798;--gray-500:#b8c2cf;--gray-900:#ffffff;}
+body{font-family:var(--font-main);background:var(--body-bg);color:var(--gray-900);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
+.box{background:var(--white);border-radius:16px;padding:56px 40px;text-align:center;max-width:480px;width:100%;}
+.code{font-size:80px;font-weight:800;color:var(--blue);line-height:1;letter-spacing:-4px;margin-bottom:16px;}
+h1{font-size:22px;font-weight:700;margin-bottom:12px;}
+p{font-size:14px;color:var(--gray-500);line-height:1.6;margin-bottom:24px;}
+a{display:inline-block;padding:12px 28px;background:var(--blue);color:#fff;border-radius:9px;text-decoration:none;font-size:14px;font-weight:700;transition:opacity .15s;}
+a:hover{opacity:.85;}
+.theme-toggle{position:fixed;top:16px;right:16px;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gray-200);background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.10);transition:all .2s;z-index:1000;}
+.theme-toggle:hover{border-color:var(--blue);transform:scale(1.08);}
+[data-theme="dark"] .theme-toggle{background:#1e2a3a;border-color:#3e4a5a;}
+.ui-icon{display:inline-flex;align-items:center;justify-content:center;}
+.ui-icon img{display:block;}
+</style>
+</head>
+<body>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Basculer le thème">
+  <span class="ui-icon" id="themeIcon" data-icon="theme-dark.svg" aria-hidden="true"></span>
+</button>
+<div class="box">
+  <div class="code">404</div>
+  <h1>Page introuvable</h1>
+  <p>La page que vous recherchez n&rsquo;existe pas ou a &eacute;t&eacute; d&eacute;plac&eacute;e.</p>
+  <a href="/">Retour au calculateur</a>
+</div>
+</body>
+<script>
+'use strict';
+var ICONS={'theme-dark.svg':'assets/icons/theme-dark.svg','theme-light.svg':'assets/icons/theme-light.svg'};
+function hydrateIcons(){document.querySelectorAll('[data-icon]').forEach(function(el){var n=el.getAttribute('data-icon');var p=ICONS[n];if(!p)return;el.innerHTML='<img src="'+p+'" alt="" width="20" height="20" aria-hidden="true">';});}
+function updateThemeIcon(){var icon=document.getElementById('themeIcon');if(!icon)return;var isDark=document.documentElement.getAttribute('data-theme')==='dark';icon.setAttribute('data-icon',isDark?'theme-light.svg':'theme-dark.svg');hydrateIcons();}
+function toggleTheme(){var isDark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',isDark?'':'dark');localStorage.setItem('theme',isDark?'light':'dark');updateThemeIcon();}
+document.addEventListener('DOMContentLoaded',function(){hydrateIcons();updateThemeIcon();});
+</script>
+</body>
+</html>
